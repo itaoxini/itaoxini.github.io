@@ -1,2 +1,297 @@
-<h1>我的第一个网页</h1>
-<p>成功了！</p>
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>神启三界 · 首页</title>
+    <style>
+        /* 基础重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0066cc;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 导航栏 */
+        .navbar {
+            background: #fff;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0a4b7a;
+        }
+
+        .nav-links a {
+            margin-left: 2rem;
+            color: #444;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #0066cc;
+        }
+
+        /* 英雄大图 */
+        .hero {
+            background: linear-gradient(145deg, #f6f9fc, #e9f1f7);
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #0a4b7a;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #0066cc;
+            color: #fff;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #004999;
+        }
+
+        /* 服务/特色卡片 */
+        .features {
+            padding: 4rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 3rem;
+            color: #0a4b7a;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin: 1rem 0 0.8rem;
+            color: #0a4b7a;
+        }
+
+        .card p {
+            color: #666;
+        }
+
+        /* 关于我们 */
+        .about {
+            background: #f8fafc;
+            padding: 4rem 0;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1.2rem;
+            color: #0a4b7a;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        /* 联系方式 */
+        .contact {
+            padding: 4rem 0;
+        }
+
+        .contact-info {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #444;
+        }
+
+        .contact-info p {
+            margin: 0.5rem 0;
+        }
+
+        /* 页脚 */
+        .footer {
+            background: #0a2e4a;
+            color: #ccc;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0.3rem 0;
+        }
+
+        /* 移动端导航简化 */
+        @media (max-width: 768px) {
+            .nav-links a {
+                margin-left: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">公司名</div>
+            <div class="nav-links">
+                <a href=" ">首页</a >
+                <a href="#about">关于</a >
+                <a href="#services">服务</a >
+                <a href="#contact">联系</a >
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区（首屏大图） -->
+    <section class="hero">
+        <div class="container">
+            <h1>创新科技，驱动未来</h1>
+            <p>我们为企业提供数字化解决方案，助力业务增长</p >
+            <a href="#contact" class="btn">立即咨询</a >
+        </div>
+    </section>
+
+    <!-- 服务/特色卡片区 -->
+    <section id="services" class="features">
+        <div class="container">
+            <h2 class="section-title">我们的服务</h2>
+            <div class="cards">
+                <div class="card">
+                    <div style="font-size: 3rem;">🚀</div>
+                    <h3>网站开发</h3>
+                    <p>响应式企业官网、电商平台、定制系统开发</p >
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem;">📱</div>
+                    <h3>移动应用</h3>
+                    <p>iOS/Android App 设计、开发、上架一站式服务</p >
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem;">☁️</div>
+                    <h3>云服务</h3>
+                    <p>服务器运维、架构优化、上云迁移</p >
+                </div>
+                <div class="card">
+                    <div style="font-size: 3rem;">🎨</div>
+                    <h3>UI/UX设计</h3>
+                    <p>用户体验研究、界面设计、原型交互</p >
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>关于我们</h2>
+                    <p>三界分为天庭，人间，地府
+三界群是一个中二病颠子聚集地，发病收容所，不管多莫名其妙都没事，因为会有比你更莫名其妙的人出现，一堆变态，入群需谨慎，不过没关系，群主是人美心善，好说话，温和可爱的少女阎王，所以没关系的，来吧！加入我们！！变成中二病的一员吧！！</p >
+                    <p>自2022年成立以来，已经收编成员99人跨越天地人三界。</p >
+                    <p>我们相信中二病也能拯救世界！</p >
+                </div>
+                <div style="text-align: center; font-size: 8rem; color: #0a4b7a;">🏢</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">联系我们</h2>
+            <div class="contact-info">
+                <p>📧 邮箱：1978981370@qq.com</p >
+                <p>📞 电话：13840772701</p >
+                <p>📍 地址：神启三界冥界办事处</p >
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 神启三界 版权所有</p >
+            <p style="font-size: 0.9rem;">本网站为免费模板示例，可自行修改</p >
+        </div>
+    </footer>
+</body>
+</html>
