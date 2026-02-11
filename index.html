@@ -1,300 +1,590 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>神启三界 · 首页</title>
-    <style>
-        /* 基础重置 */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
-        }
-
-        body {
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-
-        a {
-            text-decoration: none;
-            color: #0066cc;
-        }
-
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* 导航栏 */
-        .navbar {
-            background: #fff;
-            padding: 1rem 0;
-            border-bottom: 1px solid #eee;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #0a4b7a;
-        }
-
-        .nav-links a {
-            margin-left: 2rem;
-            color: #444;
-            font-weight: 500;
-        }
-
-        .nav-links a:hover {
-            color: #0066cc;
-        }
-
-        /* 英雄大图 */
-        .hero {
-    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('/images/阎柒照片1.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 6rem 0;
-    text-align: center;
-    color: white; /* 文字变白，在深色背景上更清楚 */
-}
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #0a4b7a;
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            color: #555;
-            max-width: 700px;
-            margin: 0 auto 2rem;
-        }
-
-        .btn {
-            display: inline-block;
-            background: #0066cc;
-            color: #fff;
-            padding: 0.8rem 2rem;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
-
-        .btn:hover {
-            background: #004999;
-        }
-
-        /* 服务/特色卡片 */
-        .features {
-            padding: 4rem 0;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 3rem;
-            color: #0a4b7a;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 12px;
-            padding: 2rem 1.5rem;
-            text-align: center;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 20px rgba(0,0,0,0.05);
-        }
-
-        .card h3 {
-            margin: 1rem 0 0.8rem;
-            color: #0a4b7a;
-        }
-
-        .card p {
-            color: #666;
-        }
-
-        /* 关于我们 */
-        .about {
-            background: #f8fafc;
-            padding: 4rem 0;
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .about-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1.2rem;
-            color: #0a4b7a;
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            color: #555;
-        }
-
-        /* 联系方式 */
-        .contact {
-            padding: 4rem 0;
-        }
-
-        .contact-info {
-            text-align: center;
-            font-size: 1.2rem;
-            color: #444;
-        }
-
-        .contact-info p {
-            margin: 0.5rem 0;
-        }
-
-        /* 页脚 */
-        .footer {
-            background: #0a2e4a;
-            color: #ccc;
-            padding: 2rem 0;
-            text-align: center;
-        }
-
-        .footer p {
-            margin: 0.3rem 0;
-        }
-
-        /* 移动端导航简化 */
-        @media (max-width: 768px) {
-            .nav-links a {
-                margin-left: 1rem;
-                font-size: 0.9rem;
-            }
-
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-
-            .about-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- 导航栏 -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="logo">神启三界</div>
-            <div class="nav-links">
-                <a href=" ">首页</a >
-                <a href="#about">关于</a >
-                <a href="#services">服务</a >
-                <a href="#contact">联系</a >
-            </div>
-        </div>
-    </nav>
-
-    <!-- 英雄区（首屏大图） -->
-    <section class="hero">
-        <div class="container">
-            <h1>创新科技，驱动未来</h1>
-            <p>我们为企业提供数字化解决方案，助力业务增长</p >
-            <a href="#contact" class="btn">立即咨询</a >
-        </div>
-    </section>
-
-    <!-- 服务/特色卡片区 -->
-    <section id="services" class="features">
-        <div class="container">
-            <h2 class="section-title">我们的服务</h2>
-            <div class="cards">
-                <div class="card">
-                    <div style="font-size: 3rem;">🚀</div>
-                    <h3>网站开发</h3>
-                    <p>响应式企业官网、电商平台、定制系统开发</p >
-                </div>
-                <div class="card">
-                    <div style="font-size: 3rem;">📱</div>
-                    <h3>移动应用</h3>
-                    <p>iOS/Android App 设计、开发、上架一站式服务</p >
-                </div>
-                <div class="card">
-                    <div style="font-size: 3rem;">☁️</div>
-                    <h3>云服务</h3>
-                    <p>服务器运维、架构优化、上云迁移</p >
-                </div>
-                <div class="card">
-                    <div style="font-size: 3rem;">🎨</div>
-                    <h3>UI/UX设计</h3>
-                    <p>用户体验研究、界面设计、原型交互</p >
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 关于我们 -->
-    <section id="about" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>关于我们</h2>
-                    <p>三界分为天庭，人间，地府
-三界群是一个中二病颠子聚集地，发病收容所，不管多莫名其妙都没事，因为会有比你更莫名其妙的人出现，一堆变态，入群需谨慎，不过没关系，群主是人美心善，好说话，温和可爱的少女阎王，所以没关系的，来吧！加入我们！！变成中二病的一员吧！！</p >
-                    <p>自2022年成立以来，已经收编成员99人跨越天地人三界。</p >
-                    <p>我们相信中二病也能拯救世界！</p >
-                </div>
-                <div style="text-align: center; font-size: 8rem; color: #0a4b7a;">🏢</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 联系方式 -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">联系我们</h2>
-            <div class="contact-info">
-                <p>📧 邮箱：1978981370@qq.com</p >
-                <p>📞 电话：13840772701</p >
-                <p>📍 地址：神启三界冥界办事处</p >
-            </div>
-        </div>
-    </section>
-
-    <!-- 页脚 -->
-    <footer class="footer">
-        <div class="container">
-            <p>© 2026 神启三界 版权所有</p >
-            <p style="font-size: 0.9rem;"></p >
-        </div>
-    </footer>
-</body>
+<!DOCTYPE html>﻿
+<html lang="zh">﻿
+<head>﻿
+    <meta charset="UTF-8">﻿
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">﻿
+    <title>神启三界 · 官方网站</title>﻿
+    <!-- Font Awesome 6 免费图标库 -->﻿
+    <link rel="stylesheet" href="
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
+">﻿
+    <style>﻿
+        * {﻿
+            margin: 0;﻿
+            padding: 0;﻿
+            box-sizing: border-box;﻿
+            font-family: 'Poppins', 'Microsoft YaHei', sans-serif;﻿
+        }﻿
+        body {﻿
+            background-color: #f9fbfd;﻿
+            color: #2c3e50;﻿
+            line-height: 1.6;﻿
+        }﻿
+        a {﻿
+            text-decoration: none;﻿
+            color: inherit;﻿
+        }﻿
+        .container {﻿
+            width: 90%;﻿
+            max-width: 1300px;﻿
+            margin: 0 auto;﻿
+        }﻿
+        /* ----- 顶部导航 ----- */﻿
+        .top-bar {﻿
+            background-color: #0a3e5c;﻿
+            color: white;﻿
+            padding: 8px 0;﻿
+            font-size: 0.9rem;﻿
+        }﻿
+        .top-bar .container {﻿
+            display: flex;﻿
+            justify-content: space-between;﻿
+            align-items: center;﻿
+        }﻿
+        .contact-info i {﻿
+            margin-right: 5px;﻿
+        }﻿
+        .contact-info span {﻿
+            margin-right: 20px;﻿
+        }﻿
+        .login-link a {﻿
+            color: #ffd966;﻿
+            margin-left: 15px;﻿
+        }﻿
+        /* ----- 校名导航 ----- */﻿
+        .main-header {﻿
+            background: white;﻿
+            padding: 20px 0;﻿
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);﻿
+            position: sticky;﻿
+            top: 0;﻿
+            z-index: 100;﻿
+        }﻿
+        .main-header .container {﻿
+            display: flex;﻿
+            align-items: center;﻿
+            justify-content: space-between;﻿
+        }﻿
+        .logo-area {﻿
+            display: flex;﻿
+            align-items: center;﻿
+        }﻿
+        .logo-icon {﻿
+            font-size: 2.5rem;﻿
+            color: #0a3e5c;﻿
+            margin-right: 12px;﻿
+        }﻿
+        .school-name h1 {﻿
+            font-size: 1.8rem;﻿
+            font-weight: 600;﻿
+            color: #0a3e5c;﻿
+            line-height: 1.2;﻿
+        }﻿
+        .school-name p {﻿
+            font-size: 0.9rem;﻿
+            color: #6c757d;﻿
+            letter-spacing: 1px;﻿
+        }﻿
+        .nav-links a {﻿
+            margin-left: 28px;﻿
+            font-weight: 500;﻿
+            color: #2c3e50;﻿
+            transition: color 0.2s;﻿
+        }﻿
+        .nav-links a:hover {﻿
+            color: #0a3e5c;﻿
+            border-bottom: 2px solid #0a3e5c;﻿
+            padding-bottom: 5px;﻿
+        }﻿
+        /* ----- 横幅大图（自定义图片替换处）----- */﻿
+        .hero {﻿
+            background: linear-gradient(95deg, #0a3e5c 0%, #1d5a7a 100%);﻿
+            color: white;﻿
+            padding: 60px 0;﻿
+            margin-bottom: 20px;﻿
+        }﻿
+        .hero .container {﻿
+            display: flex;﻿
+            align-items: center;﻿
+            justify-content: space-between;﻿
+            flex-wrap: wrap;﻿
+        }﻿
+        .hero-text {﻿
+            flex: 1 1 300px;﻿
+        }﻿
+        .hero-text h2 {﻿
+            font-size: 2.6rem;﻿
+            font-weight: 700;﻿
+            margin-bottom: 15px;﻿
+            line-height: 1.2;﻿
+        }﻿
+        .hero-text p {﻿
+            font-size: 1.2rem;﻿
+            margin-bottom: 25px;﻿
+            opacity: 0.95;﻿
+        }﻿
+        .hero-btn {﻿
+            background-color: #ffb74d;﻿
+            color: #0a3e5c;﻿
+            padding: 12px 30px;﻿
+            border-radius: 40px;﻿
+            font-weight: 600;﻿
+            display: inline-block;﻿
+            transition: 0.2s;﻿
+        }﻿
+        .hero-btn:hover {﻿
+            background-color: #ffa726;﻿
+            transform: translateY(-2px);﻿
+        }﻿
+        .hero-image {﻿
+            flex: 0 0 300px;﻿
+            text-align: center;﻿
+            font-size: 8rem;﻿
+        }﻿
+        /* ----- 新闻与公告（左右分栏）----- */﻿
+        .news-section {﻿
+            padding: 50px 0;﻿
+        }﻿
+        .section-title {﻿
+            font-size: 2rem;﻿
+            color: #0a3e5c;﻿
+            margin-bottom: 30px;﻿
+            border-left: 8px solid #ffb74d;﻿
+            padding-left: 20px;﻿
+        }﻿
+        .news-grid {﻿
+            display: grid;﻿
+            grid-template-columns: 1fr 1fr;﻿
+            gap: 30px;﻿
+        }﻿
+        .news-card {﻿
+            background: white;﻿
+            border-radius: 12px;﻿
+            padding: 25px;﻿
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);﻿
+            transition: 0.2s;﻿
+            border: 1px solid #eef2f6;﻿
+        }﻿
+        .news-card:hover {﻿
+            box-shadow: 0 10px 25px rgba(0,60,100,0.08);﻿
+        }﻿
+        .news-tag {﻿
+            display: inline-block;﻿
+            background: #e9f0f5;﻿
+            color: #0a3e5c;﻿
+            font-size: 0.75rem;﻿
+            padding: 4px 12px;﻿
+            border-radius: 30px;﻿
+            font-weight: 600;﻿
+            margin-bottom: 15px;﻿
+        }﻿
+        .news-card h3 {﻿
+            font-size: 1.4rem;﻿
+            margin-bottom: 10px;﻿
+        }﻿
+        .news-meta {﻿
+            color: #7f8c8d;﻿
+            font-size: 0.85rem;﻿
+            margin-top: 15px;﻿
+        }﻿
+        .news-meta i {﻿
+            margin-right: 5px;﻿
+        }﻿
+        .notice-list {﻿
+            background: white;﻿
+            border-radius: 12px;﻿
+            padding: 10px 0;﻿
+            border: 1px solid #eef2f6;﻿
+        }﻿
+        .notice-item {﻿
+            display: flex;﻿
+            justify-content: space-between;﻿
+            align-items: center;﻿
+            padding: 15px 25px;﻿
+            border-bottom: 1px solid #edf2f7;﻿
+        }﻿
+        .notice-item:last-child {﻿
+            border-bottom: none;﻿
+        }﻿
+        .notice-title i {﻿
+            color: #ffb74d;﻿
+            margin-right: 10px;﻿
+        }﻿
+        .notice-date {﻿
+            color: #95a5a6;﻿
+            font-size: 0.85rem;﻿
+        }﻿
+        .more-link {﻿
+            text-align: right;﻿
+            margin-top: 20px;﻿
+        }﻿
+        .more-link a {﻿
+            color: #0a3e5c;﻿
+            font-weight: 600;﻿
+        }﻿
+        /* ----- 快速入口（院系/招生等）----- */﻿
+        .quick-links {﻿
+            background: white;﻿
+            padding: 50px 0;﻿
+        }﻿
+        .cards {﻿
+            display: grid;﻿
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));﻿
+            gap: 25px;﻿
+        }﻿
+        .card-item {﻿
+            background: #f5f9fc;﻿
+            border-radius: 16px;﻿
+            padding: 30px 15px;﻿
+            text-align: center;﻿
+            transition: 0.2s;﻿
+            border: 1px solid #e1ecf4;﻿
+        }﻿
+        .card-item:hover {﻿
+            background: #0a3e5c;﻿
+            color: white;﻿
+            transform: translateY(-5px);﻿
+        }﻿
+        .card-item i {﻿
+            font-size: 2.8rem;﻿
+            margin-bottom: 15px;﻿
+            color: #0a3e5c;﻿
+        }﻿
+        .card-item:hover i {﻿
+            color: white;﻿
+        }﻿
+        .card-item h4 {﻿
+            font-size: 1.3rem;﻿
+            margin-bottom: 8px;﻿
+        }﻿
+        .card-item p {﻿
+            font-size: 0.9rem;﻿
+            opacity: 0.8;﻿
+        }﻿
+        /* ----- 学校简介 ----- */﻿
+        .about-school {﻿
+            padding: 60px 0;﻿
+            background: #f0f6fa;﻿
+        }﻿
+        .about-flex {﻿
+            display: flex;﻿
+            align-items: center;﻿
+            gap: 50px;﻿
+            flex-wrap: wrap;﻿
+        }﻿
+        .about-text {﻿
+            flex: 1 1 300px;﻿
+        }﻿
+        .about-text h2 {﻿
+            font-size: 2.2rem;﻿
+            color: #0a3e5c;﻿
+            margin-bottom: 20px;﻿
+        }﻿
+        .about-text p {﻿
+            margin-bottom: 15px;﻿
+            color: #3e5a6b;﻿
+        }﻿
+        .about-stats {﻿
+            display: flex;﻿
+            gap: 30px;﻿
+            margin-top: 30px;﻿
+        }﻿
+        .stat-item {﻿
+            text-align: center;﻿
+        }﻿
+        .stat-number {﻿
+            font-size: 2.2rem;﻿
+            font-weight: 700;﻿
+            color: #0a3e5c;﻿
+        }﻿
+        .stat-label {﻿
+            font-size: 0.9rem;﻿
+            color: #6c7a89;﻿
+        }﻿
+        .about-image {﻿
+            flex: 0 0 250px;﻿
+            font-size: 10rem;﻿
+            text-align: center;﻿
+            color: #1d5a7a;﻿
+        }﻿
+        /* ----- 页脚 ----- */﻿
+        .footer {﻿
+            background: #0a2e3f;﻿
+            color: #cbd5e0;﻿
+            padding: 40px 0 20px;﻿
+        }﻿
+        .footer-grid {﻿
+            display: grid;﻿
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));﻿
+            gap: 30px;﻿
+            margin-bottom: 30px;﻿
+        }﻿
+        .footer-col h4 {﻿
+            color: white;﻿
+            margin-bottom: 18px;﻿
+            font-size: 1.2rem;﻿
+        }﻿
+        .footer-col ul {﻿
+            list-style: none;﻿
+        }﻿
+        .footer-col li {﻿
+            margin-bottom: 10px;﻿
+        }﻿
+        .footer-col a {﻿
+            color: #b0c4ce;﻿
+        }﻿
+        .footer-col a:hover {﻿
+            color: white;﻿
+        }﻿
+        .footer-bottom {﻿
+            border-top: 1px solid #1e4a5e;﻿
+            padding-top: 20px;﻿
+            text-align: center;﻿
+            font-size: 0.85rem;﻿
+        }﻿
+        /* 移动端适配 */﻿
+        @media (max-width: 900px) {﻿
+            .main-header .container {﻿
+                flex-direction: column;﻿
+                align-items: flex-start;﻿
+            }﻿
+            .nav-links {﻿
+                margin-top: 15px;﻿
+            }﻿
+            .nav-links a {﻿
+                margin-left: 0;﻿
+                margin-right: 20px;﻿
+            }﻿
+            .hero-text h2 {﻿
+                font-size: 2rem;﻿
+            }﻿
+            .news-grid {﻿
+                grid-template-columns: 1fr;﻿
+            }﻿
+            .about-flex {﻿
+                flex-direction: column;﻿
+            }﻿
+        }﻿
+    </style>﻿
+</head>﻿
+<body>﻿
+<!-- 顶部工具栏（招生热线、校长信箱） -->﻿
+<div class="top-bar">﻿
+    <div class="container">﻿
+        <div class="contact-info">﻿
+            <span><i class="fas fa-phone-alt"></i> 招生热线：010-1234 5678</span>﻿
+            <span><i class="fas fa-envelope"></i> 校长信箱：president@uni.edu</span>﻿
+        </div>﻿
+        <div class="login-link">﻿
+            <a href="#"><i class="fas fa-user-graduate"></i> 在校生</a>﻿
+            <a href="#"><i class="fas fa-chalkboard-teacher"></i> 教职工</a>﻿
+            <a href="#"><i class="fas fa-globe"></i> English</a>﻿
+        </div>﻿
+    </div>﻿
+</div>﻿
+<!-- 校名 + 主导航 -->﻿
+<header class="main-header">﻿
+    <div class="container">﻿
+        <div class="logo-area">﻿
+            <div class="logo-icon">﻿
+                <i class="fas fa-university"></i>﻿
+            </div>﻿
+            <div class="school-name">﻿
+                <h1>神启三界</h1>﻿
+                <p>HUAXI UNIVERSITY · 诚毅勤朴</p>﻿
+            </div>﻿
+        </div>﻿
+        <nav class="nav-links">﻿
+            <a href="#">首页</a>﻿
+            <a href="#">三界概况</a>﻿
+            <a href="#">种类设置</a>﻿
+            <a href="#">招人简章</a>﻿
+            <a href="#">科学研究</a>﻿
+            <a href="#">三界文化</a>﻿
+        </nav>﻿
+    </div>﻿
+</header>﻿
+<!-- 英雄区/大图横幅（你可换成校园实拍图） -->﻿
+<section class="hero">﻿
+    <div class="container">﻿
+        <div class="hero-text">﻿
+            <h2>百十华西 · 学府宏开</h2>﻿
+            <p>2026年本科招生全面启动 | 新增人工智能、数据科学专业</p>﻿
+            <a href="#" class="hero-btn"><i class="fas fa-graduation-cap"></i> 马上咨询</a>﻿
+        </div>﻿
+        <div class="hero-image">﻿
+            <i class="fas fa-landmark"></i>   <!-- 换成你自己的校门图片更棒！ -->﻿
+        </div>﻿
+    </div>﻿
+</section>﻿
+<!-- 新闻 + 公告 区域 -->﻿
+<section class="news-section">﻿
+    <div class="container">﻿
+        <h2 class="section-title"><i class="fas fa-newspaper" style="margin-right: 10px;"></i> 新闻 · 公告</h2>﻿
+        <div class="news-grid">﻿
+            <!-- 左侧 校园新闻 -->﻿
+            <div>﻿
+                <div class="news-card">﻿
+                    <span class="news-tag"><i class="fas fa-star"></i> 头条</span>﻿
+                    <h3>我校计算机科学学科进入ESI全球前1%</h3>﻿
+                    <p>据科睿唯安最新数据，华西大学计算机科学学科被引次数排名全球前1%，取得历史性突破。</p>﻿
+                    <div class="news-meta">﻿
+                        <i class="fas fa-clock"></i> 2026-02-12 &nbsp;&nbsp; <i class="fas fa-eye"></i> 1289﻿
+                    </div>﻿
+                </div>﻿
+                <div class="news-card">﻿
+                    <span class="news-tag">综合新闻</span>﻿
+                    <h3>校友捐资1.2亿建设新工科实验大楼</h3>﻿
+                    <p>1985级校友、明远集团董事长张华明先生捐资1.2亿元人民币，用于建设南校区创新中心。</p>﻿
+                    <div class="news-meta">﻿
+                        <i class="fas fa-clock"></i> 2026-02-10﻿
+                    </div>﻿
+                </div>﻿
+            </div>﻿
+            <!-- 右侧 通知公告 -->﻿
+            <div>﻿
+                <div style="display: flex; justify-content: space-between; align-items: baseline;">﻿
+                    <h3 style="color: #0a3e5c; margin-bottom: 15px;"><i class="fas fa-bullhorn"></i> 通知公告</h3>﻿
+                    <span class="more-link"><a href="#">更多 <i class="fas fa-arrow-right"></i></a></span>﻿
+                </div>﻿
+                <div class="notice-list">﻿
+                    <div class="notice-item">﻿
+                        <span class="notice-title"><i class="fas fa-check-circle"></i> 2026年硕士研究生复试分数线公布</span>﻿
+                        <span class="notice-date">02-11</span>﻿
+                    </div>﻿
+                    <div class="notice-item">﻿
+                        <span class="notice-title"><i class="fas fa-check-circle"></i> 寒假期间图书馆开放时间安排</span>﻿
+                        <span class="notice-date">02-09</span>﻿
+                    </div>﻿
+                    <div class="notice-item">﻿
+                        <span class="notice-title"><i class="fas fa-check-circle"></i> 关于开展“挑战杯”校赛作品征集的通知</span>﻿
+                        <span class="notice-date">02-07</span>﻿
+                    </div>﻿
+                    <div class="notice-item">﻿
+                        <span class="notice-title"><i class="fas fa-check-circle"></i> 国际交流处：2026秋季交换生项目报名</span>﻿
+                        <span class="notice-date">02-05</span>﻿
+                    </div>﻿
+                    <div class="notice-item">﻿
+                        <span class="notice-title"><i class="fas fa-check-circle"></i> 财务处关于个税汇算清缴的提示</span>﻿
+                        <span class="notice-date">02-03</span>﻿
+                    </div>﻿
+                </div>﻿
+            </div>﻿
+        </div>﻿
+    </div>﻿
+</section>﻿
+<!-- 快速导航卡片（院系/招生/就业/校友） -->﻿
+<section class="quick-links">﻿
+    <div class="container">﻿
+        <h2 class="section-title"><i class="fas fa-link" style="margin-right: 10px;"></i> 快速通道</h2>﻿
+        <div class="cards">﻿
+            <a href="#" class="card-item">﻿
+                <i class="fas fa-building-columns"></i>﻿
+                <h4>院系设置</h4>﻿
+                <p>16个学院 58个本科专业</p>﻿
+            </a>﻿
+            <a href="#" class="card-item">﻿
+                <i class="fas fa-book-open"></i>﻿
+                <h4>招生信息</h4>﻿
+                <p>本科生 研究生 留学生</p>﻿
+            </a>﻿
+            <a href="#" class="card-item">﻿
+                <i class="fas fa-briefcase"></i>﻿
+                <h4>就业指导</h4>﻿
+                <p>招聘会 实习 职业测评</p>﻿
+            </a>﻿
+            <a href="#" class="card-item">﻿
+                <i class="fas fa-people-group"></i>﻿
+                <h4>校友会</h4>﻿
+                <p>捐赠 校友服务 返校</p>﻿
+            </a>﻿
+            <a href="#" class="card-item">﻿
+                <i class="fas fa-flask"></i>﻿
+                <h4>科研平台</h4>﻿
+                <p>重点实验室 协同创新</p>﻿
+            </a>﻿
+            <a href="#" class="card-item">﻿
+                <i class="fas fa-calendar"></i>﻿
+                <h4>三界历</h4>﻿
+                <p>三界安排 节假日</p>﻿
+            </a>﻿
+        </div>﻿
+    </div>﻿
+</section>﻿
+<!-- 学校简介 + 数字统计 -->﻿
+<section class="about-school">﻿
+    <div class="container">﻿
+        <div class="about-flex">﻿
+            <div class="about-text">﻿
+                <h2>关于华西</h2>﻿
+                <p>三界分为天庭，人间，地府三界群是一个中二病颠子聚集地，发病收容所，</p>﻿
+                <p>不管多莫名其妙都没事，因为会有比你更莫名其妙的人出现，一堆变态，入群需谨慎，不过没关系，群主是人美心善，好说话，温和可爱的少女阎王，</p>﻿
+                <div class="about-stats">﻿
+                    <div class="stat-item">﻿
+                        <div class="stat-number">105年</div>﻿
+                        <div class="stat-label">三界历史</div>﻿
+                    </div>﻿
+                    <div class="stat-item">﻿
+                        <div class="stat-number">16个</div>﻿
+                        <div class="stat-label">二级学院</div>﻿
+                    </div>﻿
+                    <div class="stat-item">﻿
+                        <div class="stat-number">58个</div>﻿
+                        <div class="stat-label">本科专业</div>﻿
+                    </div>﻿
+                </div>﻿
+            </div>﻿
+            <div class="about-image">﻿
+                <i class="fas fa-graduation-cap"></i>  <!-- 此处可放校徽或教学楼照片 -->﻿
+            </div>﻿
+        </div>﻿
+    </div>﻿
+</section>﻿
+<!-- 页脚 -->﻿
+<footer class="footer">﻿
+    <div class="container">﻿
+        <div class="footer-grid">﻿
+            <div class="footer-col">﻿
+                <h4>三界概况</h4>﻿
+                <ul>﻿
+                    <li><a href="#">三界简介</a></li>﻿
+                    <li><a href="#">历史沿革</a></li>﻿
+                    <li><a href="#">现任领导</a></li>﻿
+                    <li><a href="#">三界地图</a></li>﻿
+                </ul>﻿
+            </div>﻿
+            <div class="footer-col">﻿
+                <h4>招生就业</h4>﻿
+                <ul>﻿
+                    <li><a href="#">本科招生</a></li>﻿
+                    <li><a href="#">研究生招生</a></li>﻿
+                    <li><a href="#">留学生招生</a></li>﻿
+                    <li><a href="#">就业信息网</a></li>﻿
+                </ul>﻿
+            </div>﻿
+            <div class="footer-col">﻿
+                <h4>三界服务</h4>﻿
+                <ul>﻿
+                    <li><a href="#">图书馆</a></li>﻿
+                    <li><a href="#">信息门户</a></li>﻿
+                    <li><a href="#">后勤报修</a></li>﻿
+                    <li><a href="#">网络服务</a></li>﻿
+                </ul>﻿
+            </div>﻿
+            <div class="footer-col">﻿
+                <h4>联系方式</h4>﻿
+                <ul>﻿
+                    <li><i class="fas fa-map-marker-alt"></i> 三界冥界办事处</li>﻿
+                    <li><i class="fas fa-phone"></i> 13840772701</li>﻿
+                    <li><i class="fas fa-envelope"></i>1978981370@qq.com</li>﻿
+                    <li><i class="fas fa-qrcode"></i>taoruyi521 </li>﻿
+                </ul>﻿
+            </div>﻿
+        </div>﻿
+        <div class="footer-bottom">﻿
+            <p>版权所有 © 2026 神启三界|  建议使用Chrome/Firefox/Edge访问</p>﻿
+        </div>﻿
+    </div>﻿
+</footer>﻿
+</body>﻿
 </html>
