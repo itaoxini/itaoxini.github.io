@@ -1,590 +1,860 @@
-<!DOCTYPE html>﻿
-<html lang="zh">﻿
-<head>﻿
-    <meta charset="UTF-8">﻿
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">﻿
-    <title>神启三界 · 官方网站</title>﻿
-    <!-- Font Awesome 6 免费图标库 -->﻿
-    <link rel="stylesheet" href="
-https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css
-">﻿
-    <style>﻿
-        * {﻿
-            margin: 0;﻿
-            padding: 0;﻿
-            box-sizing: border-box;﻿
-            font-family: 'Poppins', 'Microsoft YaHei', sans-serif;﻿
-        }﻿
-        body {﻿
-            background-color: #f9fbfd;﻿
-            color: #2c3e50;﻿
-            line-height: 1.6;﻿
-        }﻿
-        a {﻿
-            text-decoration: none;﻿
-            color: inherit;﻿
-        }﻿
-        .container {﻿
-            width: 90%;﻿
-            max-width: 1300px;﻿
-            margin: 0 auto;﻿
-        }﻿
-        /* ----- 顶部导航 ----- */﻿
-        .top-bar {﻿
-            background-color: #0a3e5c;﻿
-            color: white;﻿
-            padding: 8px 0;﻿
-            font-size: 0.9rem;﻿
-        }﻿
-        .top-bar .container {﻿
-            display: flex;﻿
-            justify-content: space-between;﻿
-            align-items: center;﻿
-        }﻿
-        .contact-info i {﻿
-            margin-right: 5px;﻿
-        }﻿
-        .contact-info span {﻿
-            margin-right: 20px;﻿
-        }﻿
-        .login-link a {﻿
-            color: #ffd966;﻿
-            margin-left: 15px;﻿
-        }﻿
-        /* ----- 校名导航 ----- */﻿
-        .main-header {﻿
-            background: white;﻿
-            padding: 20px 0;﻿
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);﻿
-            position: sticky;﻿
-            top: 0;﻿
-            z-index: 100;﻿
-        }﻿
-        .main-header .container {﻿
-            display: flex;﻿
-            align-items: center;﻿
-            justify-content: space-between;﻿
-        }﻿
-        .logo-area {﻿
-            display: flex;﻿
-            align-items: center;﻿
-        }﻿
-        .logo-icon {﻿
-            font-size: 2.5rem;﻿
-            color: #0a3e5c;﻿
-            margin-right: 12px;﻿
-        }﻿
-        .school-name h1 {﻿
-            font-size: 1.8rem;﻿
-            font-weight: 600;﻿
-            color: #0a3e5c;﻿
-            line-height: 1.2;﻿
-        }﻿
-        .school-name p {﻿
-            font-size: 0.9rem;﻿
-            color: #6c757d;﻿
-            letter-spacing: 1px;﻿
-        }﻿
-        .nav-links a {﻿
-            margin-left: 28px;﻿
-            font-weight: 500;﻿
-            color: #2c3e50;﻿
-            transition: color 0.2s;﻿
-        }﻿
-        .nav-links a:hover {﻿
-            color: #0a3e5c;﻿
-            border-bottom: 2px solid #0a3e5c;﻿
-            padding-bottom: 5px;﻿
-        }﻿
-        /* ----- 横幅大图（自定义图片替换处）----- */﻿
-        .hero {﻿
-            background: linear-gradient(95deg, #0a3e5c 0%, #1d5a7a 100%);﻿
-            color: white;﻿
-            padding: 60px 0;﻿
-            margin-bottom: 20px;﻿
-        }﻿
-        .hero .container {﻿
-            display: flex;﻿
-            align-items: center;﻿
-            justify-content: space-between;﻿
-            flex-wrap: wrap;﻿
-        }﻿
-        .hero-text {﻿
-            flex: 1 1 300px;﻿
-        }﻿
-        .hero-text h2 {﻿
-            font-size: 2.6rem;﻿
-            font-weight: 700;﻿
-            margin-bottom: 15px;﻿
-            line-height: 1.2;﻿
-        }﻿
-        .hero-text p {﻿
-            font-size: 1.2rem;﻿
-            margin-bottom: 25px;﻿
-            opacity: 0.95;﻿
-        }﻿
-        .hero-btn {﻿
-            background-color: #ffb74d;﻿
-            color: #0a3e5c;﻿
-            padding: 12px 30px;﻿
-            border-radius: 40px;﻿
-            font-weight: 600;﻿
-            display: inline-block;﻿
-            transition: 0.2s;﻿
-        }﻿
-        .hero-btn:hover {﻿
-            background-color: #ffa726;﻿
-            transform: translateY(-2px);﻿
-        }﻿
-        .hero-image {﻿
-            flex: 0 0 300px;﻿
-            text-align: center;﻿
-            font-size: 8rem;﻿
-        }﻿
-        /* ----- 新闻与公告（左右分栏）----- */﻿
-        .news-section {﻿
-            padding: 50px 0;﻿
-        }﻿
-        .section-title {﻿
-            font-size: 2rem;﻿
-            color: #0a3e5c;﻿
-            margin-bottom: 30px;﻿
-            border-left: 8px solid #ffb74d;﻿
-            padding-left: 20px;﻿
-        }﻿
-        .news-grid {﻿
-            display: grid;﻿
-            grid-template-columns: 1fr 1fr;﻿
-            gap: 30px;﻿
-        }﻿
-        .news-card {﻿
-            background: white;﻿
-            border-radius: 12px;﻿
-            padding: 25px;﻿
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);﻿
-            transition: 0.2s;﻿
-            border: 1px solid #eef2f6;﻿
-        }﻿
-        .news-card:hover {﻿
-            box-shadow: 0 10px 25px rgba(0,60,100,0.08);﻿
-        }﻿
-        .news-tag {﻿
-            display: inline-block;﻿
-            background: #e9f0f5;﻿
-            color: #0a3e5c;﻿
-            font-size: 0.75rem;﻿
-            padding: 4px 12px;﻿
-            border-radius: 30px;﻿
-            font-weight: 600;﻿
-            margin-bottom: 15px;﻿
-        }﻿
-        .news-card h3 {﻿
-            font-size: 1.4rem;﻿
-            margin-bottom: 10px;﻿
-        }﻿
-        .news-meta {﻿
-            color: #7f8c8d;﻿
-            font-size: 0.85rem;﻿
-            margin-top: 15px;﻿
-        }﻿
-        .news-meta i {﻿
-            margin-right: 5px;﻿
-        }﻿
-        .notice-list {﻿
-            background: white;﻿
-            border-radius: 12px;﻿
-            padding: 10px 0;﻿
-            border: 1px solid #eef2f6;﻿
-        }﻿
-        .notice-item {﻿
-            display: flex;﻿
-            justify-content: space-between;﻿
-            align-items: center;﻿
-            padding: 15px 25px;﻿
-            border-bottom: 1px solid #edf2f7;﻿
-        }﻿
-        .notice-item:last-child {﻿
-            border-bottom: none;﻿
-        }﻿
-        .notice-title i {﻿
-            color: #ffb74d;﻿
-            margin-right: 10px;﻿
-        }﻿
-        .notice-date {﻿
-            color: #95a5a6;﻿
-            font-size: 0.85rem;﻿
-        }﻿
-        .more-link {﻿
-            text-align: right;﻿
-            margin-top: 20px;﻿
-        }﻿
-        .more-link a {﻿
-            color: #0a3e5c;﻿
-            font-weight: 600;﻿
-        }﻿
-        /* ----- 快速入口（院系/招生等）----- */﻿
-        .quick-links {﻿
-            background: white;﻿
-            padding: 50px 0;﻿
-        }﻿
-        .cards {﻿
-            display: grid;﻿
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));﻿
-            gap: 25px;﻿
-        }﻿
-        .card-item {﻿
-            background: #f5f9fc;﻿
-            border-radius: 16px;﻿
-            padding: 30px 15px;﻿
-            text-align: center;﻿
-            transition: 0.2s;﻿
-            border: 1px solid #e1ecf4;﻿
-        }﻿
-        .card-item:hover {﻿
-            background: #0a3e5c;﻿
-            color: white;﻿
-            transform: translateY(-5px);﻿
-        }﻿
-        .card-item i {﻿
-            font-size: 2.8rem;﻿
-            margin-bottom: 15px;﻿
-            color: #0a3e5c;﻿
-        }﻿
-        .card-item:hover i {﻿
-            color: white;﻿
-        }﻿
-        .card-item h4 {﻿
-            font-size: 1.3rem;﻿
-            margin-bottom: 8px;﻿
-        }﻿
-        .card-item p {﻿
-            font-size: 0.9rem;﻿
-            opacity: 0.8;﻿
-        }﻿
-        /* ----- 学校简介 ----- */﻿
-        .about-school {﻿
-            padding: 60px 0;﻿
-            background: #f0f6fa;﻿
-        }﻿
-        .about-flex {﻿
-            display: flex;﻿
-            align-items: center;﻿
-            gap: 50px;﻿
-            flex-wrap: wrap;﻿
-        }﻿
-        .about-text {﻿
-            flex: 1 1 300px;﻿
-        }﻿
-        .about-text h2 {﻿
-            font-size: 2.2rem;﻿
-            color: #0a3e5c;﻿
-            margin-bottom: 20px;﻿
-        }﻿
-        .about-text p {﻿
-            margin-bottom: 15px;﻿
-            color: #3e5a6b;﻿
-        }﻿
-        .about-stats {﻿
-            display: flex;﻿
-            gap: 30px;﻿
-            margin-top: 30px;﻿
-        }﻿
-        .stat-item {﻿
-            text-align: center;﻿
-        }﻿
-        .stat-number {﻿
-            font-size: 2.2rem;﻿
-            font-weight: 700;﻿
-            color: #0a3e5c;﻿
-        }﻿
-        .stat-label {﻿
-            font-size: 0.9rem;﻿
-            color: #6c7a89;﻿
-        }﻿
-        .about-image {﻿
-            flex: 0 0 250px;﻿
-            font-size: 10rem;﻿
-            text-align: center;﻿
-            color: #1d5a7a;﻿
-        }﻿
-        /* ----- 页脚 ----- */﻿
-        .footer {﻿
-            background: #0a2e3f;﻿
-            color: #cbd5e0;﻿
-            padding: 40px 0 20px;﻿
-        }﻿
-        .footer-grid {﻿
-            display: grid;﻿
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));﻿
-            gap: 30px;﻿
-            margin-bottom: 30px;﻿
-        }﻿
-        .footer-col h4 {﻿
-            color: white;﻿
-            margin-bottom: 18px;﻿
-            font-size: 1.2rem;﻿
-        }﻿
-        .footer-col ul {﻿
-            list-style: none;﻿
-        }﻿
-        .footer-col li {﻿
-            margin-bottom: 10px;﻿
-        }﻿
-        .footer-col a {﻿
-            color: #b0c4ce;﻿
-        }﻿
-        .footer-col a:hover {﻿
-            color: white;﻿
-        }﻿
-        .footer-bottom {﻿
-            border-top: 1px solid #1e4a5e;﻿
-            padding-top: 20px;﻿
-            text-align: center;﻿
-            font-size: 0.85rem;﻿
-        }﻿
-        /* 移动端适配 */﻿
-        @media (max-width: 900px) {﻿
-            .main-header .container {﻿
-                flex-direction: column;﻿
-                align-items: flex-start;﻿
-            }﻿
-            .nav-links {﻿
-                margin-top: 15px;﻿
-            }﻿
-            .nav-links a {﻿
-                margin-left: 0;﻿
-                margin-right: 20px;﻿
-            }﻿
-            .hero-text h2 {﻿
-                font-size: 2rem;﻿
-            }﻿
-            .news-grid {﻿
-                grid-template-columns: 1fr;﻿
-            }﻿
-            .about-flex {﻿
-                flex-direction: column;﻿
-            }﻿
-        }﻿
-    </style>﻿
-</head>﻿
-<body>﻿
-<!-- 顶部工具栏（招生热线、校长信箱） -->﻿
-<div class="top-bar">﻿
-    <div class="container">﻿
-        <div class="contact-info">﻿
-            <span><i class="fas fa-phone-alt"></i> 招生热线：010-1234 5678</span>﻿
-            <span><i class="fas fa-envelope"></i> 校长信箱：president@uni.edu</span>﻿
-        </div>﻿
-        <div class="login-link">﻿
-            <a href="#"><i class="fas fa-user-graduate"></i> 在校生</a>﻿
-            <a href="#"><i class="fas fa-chalkboard-teacher"></i> 教职工</a>﻿
-            <a href="#"><i class="fas fa-globe"></i> English</a>﻿
-        </div>﻿
-    </div>﻿
-</div>﻿
-<!-- 校名 + 主导航 -->﻿
-<header class="main-header">﻿
-    <div class="container">﻿
-        <div class="logo-area">﻿
-            <div class="logo-icon">﻿
-                <i class="fas fa-university"></i>﻿
-            </div>﻿
-            <div class="school-name">﻿
-                <h1>神启三界</h1>﻿
-                <p>HUAXI UNIVERSITY · 诚毅勤朴</p>﻿
-            </div>﻿
-        </div>﻿
-        <nav class="nav-links">﻿
-            <a href="#">首页</a>﻿
-            <a href="#">三界概况</a>﻿
-            <a href="#">种类设置</a>﻿
-            <a href="#">招人简章</a>﻿
-            <a href="#">科学研究</a>﻿
-            <a href="#">三界文化</a>﻿
-        </nav>﻿
-    </div>﻿
-</header>﻿
-<!-- 英雄区/大图横幅（你可换成校园实拍图） -->﻿
-<section class="hero">﻿
-    <div class="container">﻿
-        <div class="hero-text">﻿
-            <h2>百十华西 · 学府宏开</h2>﻿
-            <p>2026年本科招生全面启动 | 新增人工智能、数据科学专业</p>﻿
-            <a href="#" class="hero-btn"><i class="fas fa-graduation-cap"></i> 马上咨询</a>﻿
-        </div>﻿
-        <div class="hero-image">﻿
-            <i class="fas fa-landmark"></i>   <!-- 换成你自己的校门图片更棒！ -->﻿
-        </div>﻿
-    </div>﻿
-</section>﻿
-<!-- 新闻 + 公告 区域 -->﻿
-<section class="news-section">﻿
-    <div class="container">﻿
-        <h2 class="section-title"><i class="fas fa-newspaper" style="margin-right: 10px;"></i> 新闻 · 公告</h2>﻿
-        <div class="news-grid">﻿
-            <!-- 左侧 校园新闻 -->﻿
-            <div>﻿
-                <div class="news-card">﻿
-                    <span class="news-tag"><i class="fas fa-star"></i> 头条</span>﻿
-                    <h3>我校计算机科学学科进入ESI全球前1%</h3>﻿
-                    <p>据科睿唯安最新数据，华西大学计算机科学学科被引次数排名全球前1%，取得历史性突破。</p>﻿
-                    <div class="news-meta">﻿
-                        <i class="fas fa-clock"></i> 2026-02-12 &nbsp;&nbsp; <i class="fas fa-eye"></i> 1289﻿
-                    </div>﻿
-                </div>﻿
-                <div class="news-card">﻿
-                    <span class="news-tag">综合新闻</span>﻿
-                    <h3>校友捐资1.2亿建设新工科实验大楼</h3>﻿
-                    <p>1985级校友、明远集团董事长张华明先生捐资1.2亿元人民币，用于建设南校区创新中心。</p>﻿
-                    <div class="news-meta">﻿
-                        <i class="fas fa-clock"></i> 2026-02-10﻿
-                    </div>﻿
-                </div>﻿
-            </div>﻿
-            <!-- 右侧 通知公告 -->﻿
-            <div>﻿
-                <div style="display: flex; justify-content: space-between; align-items: baseline;">﻿
-                    <h3 style="color: #0a3e5c; margin-bottom: 15px;"><i class="fas fa-bullhorn"></i> 通知公告</h3>﻿
-                    <span class="more-link"><a href="#">更多 <i class="fas fa-arrow-right"></i></a></span>﻿
-                </div>﻿
-                <div class="notice-list">﻿
-                    <div class="notice-item">﻿
-                        <span class="notice-title"><i class="fas fa-check-circle"></i> 2026年硕士研究生复试分数线公布</span>﻿
-                        <span class="notice-date">02-11</span>﻿
-                    </div>﻿
-                    <div class="notice-item">﻿
-                        <span class="notice-title"><i class="fas fa-check-circle"></i> 寒假期间图书馆开放时间安排</span>﻿
-                        <span class="notice-date">02-09</span>﻿
-                    </div>﻿
-                    <div class="notice-item">﻿
-                        <span class="notice-title"><i class="fas fa-check-circle"></i> 关于开展“挑战杯”校赛作品征集的通知</span>﻿
-                        <span class="notice-date">02-07</span>﻿
-                    </div>﻿
-                    <div class="notice-item">﻿
-                        <span class="notice-title"><i class="fas fa-check-circle"></i> 国际交流处：2026秋季交换生项目报名</span>﻿
-                        <span class="notice-date">02-05</span>﻿
-                    </div>﻿
-                    <div class="notice-item">﻿
-                        <span class="notice-title"><i class="fas fa-check-circle"></i> 财务处关于个税汇算清缴的提示</span>﻿
-                        <span class="notice-date">02-03</span>﻿
-                    </div>﻿
-                </div>﻿
-            </div>﻿
-        </div>﻿
-    </div>﻿
-</section>﻿
-<!-- 快速导航卡片（院系/招生/就业/校友） -->﻿
-<section class="quick-links">﻿
-    <div class="container">﻿
-        <h2 class="section-title"><i class="fas fa-link" style="margin-right: 10px;"></i> 快速通道</h2>﻿
-        <div class="cards">﻿
-            <a href="#" class="card-item">﻿
-                <i class="fas fa-building-columns"></i>﻿
-                <h4>院系设置</h4>﻿
-                <p>16个学院 58个本科专业</p>﻿
-            </a>﻿
-            <a href="#" class="card-item">﻿
-                <i class="fas fa-book-open"></i>﻿
-                <h4>招生信息</h4>﻿
-                <p>本科生 研究生 留学生</p>﻿
-            </a>﻿
-            <a href="#" class="card-item">﻿
-                <i class="fas fa-briefcase"></i>﻿
-                <h4>就业指导</h4>﻿
-                <p>招聘会 实习 职业测评</p>﻿
-            </a>﻿
-            <a href="#" class="card-item">﻿
-                <i class="fas fa-people-group"></i>﻿
-                <h4>校友会</h4>﻿
-                <p>捐赠 校友服务 返校</p>﻿
-            </a>﻿
-            <a href="#" class="card-item">﻿
-                <i class="fas fa-flask"></i>﻿
-                <h4>科研平台</h4>﻿
-                <p>重点实验室 协同创新</p>﻿
-            </a>﻿
-            <a href="#" class="card-item">﻿
-                <i class="fas fa-calendar"></i>﻿
-                <h4>三界历</h4>﻿
-                <p>三界安排 节假日</p>﻿
-            </a>﻿
-        </div>﻿
-    </div>﻿
-</section>﻿
-<!-- 学校简介 + 数字统计 -->﻿
-<section class="about-school">﻿
-    <div class="container">﻿
-        <div class="about-flex">﻿
-            <div class="about-text">﻿
-                <h2>关于华西</h2>﻿
-                <p>三界分为天庭，人间，地府三界群是一个中二病颠子聚集地，发病收容所，</p>﻿
-                <p>不管多莫名其妙都没事，因为会有比你更莫名其妙的人出现，一堆变态，入群需谨慎，不过没关系，群主是人美心善，好说话，温和可爱的少女阎王，</p>﻿
-                <div class="about-stats">﻿
-                    <div class="stat-item">﻿
-                        <div class="stat-number">105年</div>﻿
-                        <div class="stat-label">三界历史</div>﻿
-                    </div>﻿
-                    <div class="stat-item">﻿
-                        <div class="stat-number">16个</div>﻿
-                        <div class="stat-label">二级学院</div>﻿
-                    </div>﻿
-                    <div class="stat-item">﻿
-                        <div class="stat-number">58个</div>﻿
-                        <div class="stat-label">本科专业</div>﻿
-                    </div>﻿
-                </div>﻿
-            </div>﻿
-            <div class="about-image">﻿
-                <i class="fas fa-graduation-cap"></i>  <!-- 此处可放校徽或教学楼照片 -->﻿
-            </div>﻿
-        </div>﻿
-    </div>﻿
-</section>﻿
-<!-- 页脚 -->﻿
-<footer class="footer">﻿
-    <div class="container">﻿
-        <div class="footer-grid">﻿
-            <div class="footer-col">﻿
-                <h4>三界概况</h4>﻿
-                <ul>﻿
-                    <li><a href="#">三界简介</a></li>﻿
-                    <li><a href="#">历史沿革</a></li>﻿
-                    <li><a href="#">现任领导</a></li>﻿
-                    <li><a href="#">三界地图</a></li>﻿
-                </ul>﻿
-            </div>﻿
-            <div class="footer-col">﻿
-                <h4>招生就业</h4>﻿
-                <ul>﻿
-                    <li><a href="#">本科招生</a></li>﻿
-                    <li><a href="#">研究生招生</a></li>﻿
-                    <li><a href="#">留学生招生</a></li>﻿
-                    <li><a href="#">就业信息网</a></li>﻿
-                </ul>﻿
-            </div>﻿
-            <div class="footer-col">﻿
-                <h4>三界服务</h4>﻿
-                <ul>﻿
-                    <li><a href="#">图书馆</a></li>﻿
-                    <li><a href="#">信息门户</a></li>﻿
-                    <li><a href="#">后勤报修</a></li>﻿
-                    <li><a href="#">网络服务</a></li>﻿
-                </ul>﻿
-            </div>﻿
-            <div class="footer-col">﻿
-                <h4>联系方式</h4>﻿
-                <ul>﻿
-                    <li><i class="fas fa-map-marker-alt"></i> 三界冥界办事处</li>﻿
-                    <li><i class="fas fa-phone"></i> 13840772701</li>﻿
-                    <li><i class="fas fa-envelope"></i>1978981370@qq.com</li>﻿
-                    <li><i class="fas fa-qrcode"></i>taoruyi521 </li>﻿
-                </ul>﻿
-            </div>﻿
-        </div>﻿
-        <div class="footer-bottom">﻿
-            <p>版权所有 © 2026 神启三界|  建议使用Chrome/Firefox/Edge访问</p>﻿
-        </div>﻿
-    </div>﻿
-</footer>﻿
-</body>﻿
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
+    <title>神启三界 · 官方网站</title>
+    <!-- Font Awesome 6 免费图标库 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* ===== 全局重置 庄重风格 ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'SimSun', 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #f0f3f7;
+            color: #1e2b3c;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #0a3e6d;
+            transition: color 0.1s;
+        }
+
+        a:hover {
+            color: #c41e3a;
+            text-decoration: underline;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* ===== 顶端工具条 无障碍/长者版 ===== */
+        .top-toolbar {
+            background-color: #0a3e6d;
+            color: white;
+            padding: 6px 0;
+            font-size: 0.85rem;
+            border-bottom: 2px solid #ffd966;
+        }
+
+        .top-toolbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .toolbar-left i {
+            margin-right: 5px;
+        }
+
+        .toolbar-left span {
+            margin-right: 20px;
+        }
+
+        .toolbar-right a {
+            color: white;
+            margin-left: 20px;
+            padding: 2px 6px;
+        }
+
+        .toolbar-right a:hover {
+            background-color: #ffd966;
+            color: #0a3e6d;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+
+        .elder-link {
+            background-color: #c41e3a;
+            border-radius: 4px;
+            padding: 2px 10px !important;
+        }
+
+        /* ===== 头部 区徽+政府名 ===== */
+        .header {
+            background: white;
+            padding: 25px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
+
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
+
+        .gov-brand {
+            display: flex;
+            align-items: center;
+        }
+
+        .gov-emblem {
+            font-size: 3.2rem;
+            color: #c41e3a;
+            margin-right: 20px;
+        }
+
+        .gov-title h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #0a3e6d;
+            letter-spacing: 3px;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
+
+        .gov-title p {
+            color: #5a6a7a;
+            font-size: 0.95rem;
+            border-top: 1px solid #dce4ec;
+            padding-top: 8px;
+            margin-top: 5px;
+        }
+
+        .search-box {
+            display: flex;
+            border: 2px solid #0a3e6d;
+            border-radius: 40px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            width: 240px;
+            font-size: 0.95rem;
+            outline: none;
+        }
+
+        .search-box button {
+            background: #0a3e6d;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .search-box button:hover {
+            background: #c41e3a;
+        }
+
+        /* ===== 主导航 ===== */
+        .nav-primary {
+            background: #0a3e6d;
+            border-bottom: 3px solid #ffd966;
+        }
+
+        .nav-primary .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-list li {
+            position: relative;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 16px 24px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            border-right: 1px solid #1f5582;
+        }
+
+        .nav-list a:hover {
+            background: #ffd966;
+            color: #0a3e6d;
+            text-decoration: none;
+        }
+
+        .nav-tool {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .nav-tool i {
+            margin-right: 5px;
+        }
+
+        /* ===== 轮播/要闻区 政府风格大图 ===== */
+        .hero-banner {
+            background: #e6edf5;
+            padding: 30px 0;
+        }
+
+        .banner-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+        }
+
+        .main-focus {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+            border-left: 5px solid #c41e3a;
+        }
+
+        .main-focus h2 {
+            font-size: 1.8rem;
+            color: #0a3e6d;
+            margin-bottom: 15px;
+        }
+
+        .main-focus p {
+            color: #3a4a5a;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .focus-meta {
+            color: #6c7a89;
+            font-size: 0.9rem;
+            border-top: 1px solid #edf2f7;
+            padding-top: 15px;
+        }
+
+        .sub-focus {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .sub-item {
+            background: white;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border-bottom: 2px solid #b0c4ce;
+        }
+
+        .sub-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: #0a3e6d;
+        }
+
+        /* ===== 信息公开专栏 ===== */
+        .info-public {
+            padding: 40px 0;
+            background: white;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid #0a3e6d;
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #0a3e6d;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            color: #c41e3a;
+        }
+
+        .more-link {
+            color: #0a3e6d;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #f5f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d9e6f2;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            color: #0a3e6d;
+            margin-bottom: 12px;
+            border-left: 4px solid #c41e3a;
+            padding-left: 12px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            margin-bottom: 10px;
+        }
+
+        .info-card a {
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-card a:hover {
+            color: #c41e3a;
+        }
+
+        .info-date {
+            color: #7e8c9d;
+            font-size: 0.8rem;
+        }
+
+        /* ===== 政务动态 + 通知公告 ===== */
+        .gov-news {
+            padding: 40px 0;
+            background: #f0f3f7;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .news-list {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5eef5;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .list-header h3 {
+            font-size: 1.4rem;
+            color: #0a3e6d;
+        }
+
+        .news-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #edf2f7;
+        }
+
+        .news-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .news-tag {
+            background: #c41e3a;
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-right: 12px;
+        }
+
+        .news-tag-blue {
+            background: #0a3e6d;
+        }
+
+        /* ===== 政务服务 ===== */
+        .gov-service {
+            padding: 40px 0;
+            background: white;
+        }
+
+        .service-icons {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .service-item {
+            text-align: center;
+        }
+
+        .service-item i {
+            font-size: 2.2rem;
+            color: #0a3e6d;
+            margin-bottom: 8px;
+            background: #eef6fc;
+            padding: 16px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        .service-item span {
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        /* ===== 政策文件 ===== */
+        .policy-section {
+            padding: 40px 0;
+            background: #f5f9ff;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .policy-item {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid #0a3e6d;
+        }
+
+        .policy-num {
+            color: #c41e3a;
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        /* ===== 友情链接 ===== */
+        .friend-links {
+            padding: 30px 0;
+            background: white;
+            border-top: 1px solid #dce4ec;
+        }
+
+        .links-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .links-list a {
+            color: #3e5a6b;
+        }
+
+        /* ===== 页脚 ===== */
+        .footer {
+            background: #0a2e4a;
+            color: #cbd5e0;
+            padding: 30px 0 20px;
+            font-size: 0.85rem;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: #1e4a5e;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 1000px) {
+            .banner-grid, .info-grid, .news-grid, .policy-grid, .service-icons {
+                grid-template-columns: 1fr;
+            }
+            .service-icons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .gov-title h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .service-icons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ========== 顶端工具条 无障碍/长者版/网站地图 ========= -->
+<div class="top-toolbar">
+    <div class="container">
+        <div class="toolbar-left">
+            <span><i class="fas fa-star"></i> 欢迎访问某某区人民政府网</span>
+            <span><i class="fas fa-calendar"></i> 2026年2月12日 星期四</span>
+        </div>
+        <div class="toolbar-right">
+            <a href="#"><i class="fas fa-universal-access"></i> 无障碍浏览</a>
+            <a href="#" class="elder-link"><i class="fas fa-glasses"></i> 长者模式</a>
+            <a href="#"><i class="fas fa-sitemap"></i> 网站地图</a>
+            <a href="#"><i class="fas fa-language"></i> English</a>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 头部：区徽 + 政府名称 ========= -->
+<div class="header">
+    <div class="container">
+        <div class="gov-brand">
+            <div class="gov-emblem">
+                <i class="fas fa-gopuram"></i>  <!-- 政府风格徽章图标，可换成图片 -->
+            </div>
+            <div class="gov-title">
+                <h1>神启三界</h1>
+                <p>www.xining.gov.cn  ·  政务公开  服务民生</p>
+            </div>
+        </div>
+        <div class="search-box">
+            <input type="text" placeholder="搜索政府信息、办事服务...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 主导航 ========= -->
+<div class="nav-primary">
+    <div class="container">
+        <ul class="nav-list">
+            <li><a href="#">首页</a></li>
+            <li><a href="#">三界信息公开</a></li>
+            <li><a href="#">政务服务</a></li>
+            <li><a href="#">互动交流</a></li>
+            <li><a href="#">数据发布</a></li>
+            <li><a href="#">走进某某</a></li>
+        </ul>
+        <div class="nav-tool">
+            <i class="fas fa-user"></i> 个人登录 | 法人登录
+        </div>
+    </div>
+</div>
+
+<!-- ========== 要闻/焦点图区（政府风格） ========= -->
+<div class="hero-banner">
+    <div class="container">
+        <div class="banner-grid">
+            <div class="main-focus">
+                <h2>某某区2026年十大民生实事项目公布</h2>
+                <p>涵盖老旧小区改造、新增学位3600个、社区卫生服务中心建设等，计划总投资23.8亿元。</p>
+                <div class="focus-meta">
+                    <i class="fas fa-clock"></i> 2026-02-12 · 区政府办公室
+                </div>
+            </div>
+            <div class="sub-focus">
+                <div class="sub-item">
+                    <h3>区长主持召开区政府常务会议</h3>
+                    <p>研究优化营商环境、安全生产等工作</p>
+                </div>
+                <div class="sub-item">
+                    <h3>2026年公务员招考明起报名</h3>
+                    <p>全区计划招录58人</p>
+                </div>
+                <div class="sub-item">
+                    <h3>关于春节期间烟花爆竹燃放的通告</h3>
+                    <p>划定禁放区域</p>
+                </div>
+                <div class="sub-item">
+                    <h3>拟新增医保定点医药机构公示</h3>
+                    <p>12家药店、6家诊所</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 政府信息公开专栏 ========= -->
+<div class="info-public">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title"><i class="fas fa-file-alt"></i> 政府信息公开</h2>
+            <a href="#" class="more-link">更多 <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="info-grid">
+            <div class="info-card">
+                <h3>机构职能</h3>
+                <ul>
+                    <li><a href="#">区政府领导 <span class="info-date">02-12</span></a></li>
+                    <li><a href="#">政府机构设置</a></li>
+                    <li><a href="#">部门职责</a></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>法规文件</h3>
+                <ul>
+                    <li><a href="#">某某区行政规范性文件管理办法</a></li>
+                    <li><a href="#">2026年1月区政府文件</a></li>
+                    <li><a href="#">政策解读</a></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>规划计划</h3>
+                <ul>
+                    <li><a href="#">国民经济和社会发展第十五个五年规划</a></li>
+                    <li><a href="#">2026年政府工作报告</a></li>
+                    <li><a href="#">年度工作计划</a></li>
+                </ul>
+            </div>
+            <div class="info-card">
+                <h3>财政信息</h3>
+                <ul>
+                    <li><a href="#">2026年部门预算公开</a></li>
+                    <li><a href="#">财政专项资金</a></li>
+                    <li><a href="#">政府采购</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 政务动态 + 通知公告 ========= -->
+<div class="gov-news">
+    <div class="container">
+        <div class="news-grid">
+            <!-- 左侧 政务要闻 -->
+            <div class="news-list">
+                <div class="list-header">
+                    <h3><i class="fas fa-newspaper" style="margin-right: 8px;"></i> 政务要闻</h3>
+                    <a href="#" class="more-link">更多</a>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <span class="news-tag">头条</span>
+                        <a href="#">某某区与清华大学签署战略合作协议</a>
+                    </span>
+                    <span class="info-date">02-12</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">全区安全生产工作会议召开</a>
+                    </span>
+                    <span class="info-date">02-11</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">区长调研数字经济产业园建设进展</a>
+                    </span>
+                    <span class="info-date">02-10</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">2026年第一季度重大项目集中开工</a>
+                    </span>
+                    <span class="info-date">02-09</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">我区新增3家国家级专精特新企业</a>
+                    </span>
+                    <span class="info-date">02-08</span>
+                </div>
+            </div>
+            <!-- 右侧 通知公告 -->
+            <div class="news-list">
+                <div class="list-header">
+                    <h3><i class="fas fa-bullhorn" style="margin-right: 8px;"></i> 通知公告</h3>
+                    <a href="#" class="more-link">更多</a>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <span class="news-tag news-tag-blue">公告</span>
+                        <a href="#">某某区事业单位2026年公开招聘工作人员公告</a>
+                    </span>
+                    <span class="info-date">02-12</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">关于征集2026年区政府为民办实事项目的通告</a>
+                    </span>
+                    <span class="info-date">02-11</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">停水通知：2月15日这些区域将停水</a>
+                    </span>
+                    <span class="info-date">02-10</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">区民政局关于“七夕”婚姻登记预约的提示</a>
+                    </span>
+                    <span class="info-date">02-09</span>
+                </div>
+                <div class="news-item">
+                    <span class="news-title">
+                        <a href="#">某某区河长名单公示</a>
+                    </span>
+                    <span class="info-date">02-08</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 政务服务 ========= -->
+<div class="gov-service">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title"><i class="fas fa-user-cog"></i> 政务服务</h2>
+            <a href="#" class="more-link">部门服务 · 办事大厅</a>
+        </div>
+        <div class="service-icons">
+            <div class="service-item">
+                <i class="fas fa-id-card"></i>
+                <span>户籍办理</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-car"></i>
+                <span>交管服务</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-notes-medical"></i>
+                <span>医疗保障</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-building"></i>
+                <span>不动产登记</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-baby"></i>
+                <span>生育收养</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-hand-holding-usd"></i>
+                <span>社会保障</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-briefcase"></i>
+                <span>设立变更</span>
+            </div>
+            <div class="service-item">
+                <i class="fas fa-file-signature"></i>
+                <span>证件办理</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 政策文件与解读 ========= -->
+<div class="policy-section">
+    <div class="container">
+        <div class="section-header">
+            <h2 class="section-title"><i class="fas fa-file-signature"></i> 政策文件 · 解读</h2>
+            <a href="#" class="more-link">政策库</a>
+        </div>
+        <div class="policy-grid">
+            <div class="policy-item">
+                <div class="policy-num">〔2026〕12号</div>
+                <h3 style="margin-bottom: 8px;"><a href="#">某某区推进制造业高质量发展若干措施</a></h3>
+                <p style="color: #4a5a6a;">对国家级专精特新企业给予100万元奖励……</p>
+                <div style="margin-top: 12px;">
+                    <span style="background: #eef2f6; padding: 3px 10px; border-radius: 16px; font-size: 0.75rem;"><i class="fas fa-file-alt"></i> 解读材料</span>
+                </div>
+            </div>
+            <div class="policy-item">
+                <div class="policy-num">〔2026〕8号</div>
+                <h3 style="margin-bottom: 8px;"><a href="#">某某区老旧小区改造工作实施方案</a></h3>
+                <p style="color: #4a5a6a;">2026年计划改造26个小区，惠及居民1.2万户</p>
+                <div style="margin-top: 12px;">
+                    <span style="background: #eef2f6; padding: 3px 10px; border-radius: 16px; font-size: 0.75rem;"><i class="fas fa-video"></i> 视频解读</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 互动交流 / 友情链接 ========= -->
+<div class="friend-links">
+    <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="color: #0a3e6d;"><i class="fas fa-comments"></i> 互动交流</h3>
+            <div>
+                <a href="#" style="margin-right: 20px;">区长信箱</a>
+                <a href="#" style="margin-right: 20px;">网上咨询</a>
+                <a href="#" style="margin-right: 20px;">调查征集</a>
+                <a href="#">12345热线</a>
+            </div>
+        </div>
+        <hr style="border: 0.5px solid #dce4ec; margin: 20px 0;">
+        <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="color: #3e5a6b;">友情链接：</span>
+            <div class="links-list">
+                <a href="#">中国政府网</a>
+                <a href="#">省政府</a>
+                <a href="#">市政府</a>
+                <a href="#">某某区人大</a>
+                <a href="#">某某区政协</a>
+                <a href="#">区纪检监察网</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ========== 页脚 ========= -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-links">
+            <a href="#">网站声明</a>
+            <a href="#">隐私保护</a>
+            <a href="#">网站地图</a>
+            <a href="#">联系我们</a>
+            <a href="#">RSS订阅</a>
+        </div>
+        <div class="copyright">
+            <p>主办单位：神启三界冥界办事处 |  承办单位：神启三界办事处</p>
+            <p>版权所有：神启三界  <span class="cert-badge">-1</span>  <span class="cert-badge"></span></p>
+            <p>三界群号：624725365  |  联系电话13840772701</p>
+        </div>
+    </div>
+</footer>
+
+</body>
 </html>
