@@ -3,146 +3,569 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.5">
-    <title>神启三界 · 官方网站</title>
-    <!-- Font Awesome 6 免费图标库 -->
+    <title>某某区人民政府 · 官方网站</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-      /* ===== 庄重红·政府门户 ===== */
-:root {
-  --gov-red: #8b1a1a;      /* 深枣红，不刺眼 */
-  --gov-red-dark: #5e1212;  /* 更深的红 */
-  --gov-gold: #c99c47;      /* 暗金点缀 */
-  --lycoris: #a53c3c;       /* 彼岸花暗红 */
-}
+        /* ===== 庄重红·政府门户 ===== */
+        :root {
+            --gov-red: #8b1a1a;      /* 深枣红，不刺眼 */
+            --gov-red-dark: #5e1212;  /* 更深的红 */
+            --gov-gold: #c99c47;      /* 暗金点缀 */
+            --lycoris: #a53c3c;       /* 彼岸花暗红 */
+        }
 
-/* ----- 全局底色更沉稳 ----- */
-body {
-  background-color: #f5f2ed;  /* 米白底，不像蓝色那么冷 */
-  color: #2c2e30;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'SimSun', 'Arial', sans-serif;
+        }
 
-/* ----- 顶部工具条：深红 ----- */
-.top-toolbar {
-  background-color: var(--gov-red-dark) !important;
-  border-bottom: 2px solid var(--gov-gold) !important;
-}
+        body {
+            background-color: #f5f2ed;
+            color: #2c2e30;
+            line-height: 1.6;
+        }
 
-/* ----- 主导航：庄重红 ----- */
-.nav-primary {
-  background: var(--gov-red) !important;
-  border-bottom: 3px solid var(--gov-gold) !important;
-}
+        a {
+            text-decoration: none;
+            color: #0a3e6d;
+            transition: color 0.1s;
+        }
 
-.nav-list a {
-  border-right: 1px solid #a23a3a !important;
-}
+        a:hover {
+            color: #8b1a1a;
+            text-decoration: underline;
+        }
 
-.nav-list a:hover {
-  background: var(--gov-red-dark) !important;
-  color: #ffd98c !important;
-}
+        .container {
+            width: 90%;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
 
-/* ----- 区徽颜色 ----- */
-.gov-emblem i, 
-.section-title i {
-  color: var(--gov-red) !important;
-}
+        /* ----- 顶端工具条 ----- */
+        .top-toolbar {
+            background-color: var(--gov-red-dark);
+            color: white;
+            padding: 6px 0;
+            font-size: 0.85rem;
+            border-bottom: 2px solid var(--gov-gold);
+        }
 
-.section-title {
-  color: var(--gov-red-dark) !important;
-  border-left-color: var(--gov-gold) !important;
-}
+        .top-toolbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-/* ----- 按钮 ----- */
-.search-box {
-  border-color: var(--gov-red) !important;
-}
+        .toolbar-left i {
+            margin-right: 5px;
+        }
 
-.search-box button {
-  background: var(--gov-red) !important;
-}
+        .toolbar-left span {
+            margin-right: 20px;
+        }
 
-.search-box button:hover {
-  background: var(--gov-red-dark) !important;
-}
+        .toolbar-right a {
+            color: white;
+            margin-left: 20px;
+            padding: 2px 6px;
+        }
 
-.hero-btn, .btn {
-  background: var(--gov-red) !important;
-  border-radius: 4px !important;  /* 方形更庄重 */
-}
+        .toolbar-right a:hover {
+            background-color: var(--gov-gold);
+            color: var(--gov-red-dark);
+            text-decoration: none;
+            border-radius: 4px;
+        }
 
-.hero-btn:hover, .btn:hover {
-  background: var(--gov-red-dark) !important;
-}
+        .elder-link {
+            background-color: #8b1a1a;
+            border-radius: 4px;
+            padding: 2px 10px !important;
+        }
 
-/* ----- 彼岸花：只留暗纹，不抢眼 ----- */
-.hero-banner {
-  position: relative;
-}
+        /* ----- 头部：区徽+政府名 ----- */
+        .header {
+            background: white;
+            padding: 25px 0;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+        }
 
-.hero-banner::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path fill="%238b1a1a" d="M50 10c-8 0-15 5-18 12-3-7-10-12-18-12-11 0-20 9-20 20 0 18 38 48 38 48s38-30 38-48c0-11-9-20-20-20z"/></svg>');
-  background-repeat: repeat;
-  background-size: 60px;
-  pointer-events: none;
-}
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+        }
 
-/* 只在页脚留一小行极淡的花 */
-.footer::after {
-  content: "⚜️ ⚜️ ⚜️";
-  display: block;
-  text-align: center;
-  margin-top: 15px;
-  font-size: 0.9rem;
-  color: rgba(200, 170, 150, 0.3);
-  letter-spacing: 8px;
-}
+        .gov-brand {
+            display: flex;
+            align-items: center;
+        }
 
-/* ----- 卡片、边框：红金细节点缀 ----- */
-.info-card h3 {
-  border-left-color: var(--gov-gold) !important;
-  color: var(--gov-red-dark) !important;
-}
+        .gov-emblem {
+            font-size: 3.2rem;
+            color: var(--gov-red);
+            margin-right: 20px;
+        }
 
-.news-tag {
-  background: var(--gov-red) !important;
-}
+        .gov-title h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--gov-red-dark);
+            letter-spacing: 3px;
+            line-height: 1.2;
+            margin-bottom: 5px;
+        }
 
-.policy-item {
-  border-left-color: var(--gov-red) !important;
-}
+        .gov-title p {
+            color: #5a6a7a;
+            font-size: 0.95rem;
+            border-top: 1px solid #dce4ec;
+            padding-top: 8px;
+            margin-top: 5px;
+        }
 
-.footer {
-  background: #2d1e1e !important;  /* 深褐红，不刺眼 */
-  border-top: 2px solid #8b1a1a;
-}
+        .search-box {
+            display: flex;
+            border: 2px solid var(--gov-red);
+            border-radius: 4px;
+            overflow: hidden;
+            background: white;
+        }
 
-/* ----- 政府网站特有的横线、分隔符 ----- */
-.section-header {
-  border-bottom-color: var(--gov-gold) !important;
-}
+        .search-box input {
+            border: none;
+            padding: 12px 20px;
+            width: 240px;
+            font-size: 0.95rem;
+            outline: none;
+        }
 
-.more-link {
-  color: var(--gov-red) !important;
-}
+        .search-box button {
+            background: var(--gov-red);
+            color: white;
+            border: none;
+            padding: 0 20px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
 
-.more-link:hover {
-  color: var(--gov-red-dark) !important;
-}</style>
+        .search-box button:hover {
+            background: var(--gov-red-dark);
+        }
+
+        /* ----- 主导航 ----- */
+        .nav-primary {
+            background: var(--gov-red);
+            border-bottom: 3px solid var(--gov-gold);
+        }
+
+        .nav-primary .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-list li {
+            position: relative;
+        }
+
+        .nav-list a {
+            display: block;
+            padding: 16px 24px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.05rem;
+            border-right: 1px solid #a23a3a;
+        }
+
+        .nav-list a:hover {
+            background: var(--gov-red-dark);
+            color: #ffd98c;
+            text-decoration: none;
+        }
+
+        .nav-tool {
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .nav-tool i {
+            margin-right: 5px;
+        }
+
+        /* ----- 英雄区/要闻 ----- */
+        .hero-banner {
+            background: #e6edf5;
+            padding: 30px 0;
+            position: relative;
+        }
+
+        .hero-banner::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path fill="%238b1a1a" d="M50 10c-8 0-15 5-18 12-3-7-10-12-18-12-11 0-20 9-20 20 0 18 38 48 38 48s38-30 38-48c0-11-9-20-20-20z"/></svg>');
+            background-repeat: repeat;
+            background-size: 60px;
+            pointer-events: none;
+        }
+
+        .banner-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 25px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .main-focus {
+            background: white;
+            padding: 20px;
+            box-shadow: 0 5px 12px rgba(0,0,0,0.03);
+            border-left: 5px solid var(--gov-gold);
+        }
+
+        .main-focus h2 {
+            font-size: 1.8rem;
+            color: var(--gov-red-dark);
+            margin-bottom: 15px;
+        }
+
+        .main-focus p {
+            color: #3a4a5a;
+            margin-bottom: 20px;
+            font-size: 1.05rem;
+        }
+
+        .focus-meta {
+            color: #6c7a89;
+            font-size: 0.9rem;
+            border-top: 1px solid #edf2f7;
+            padding-top: 15px;
+        }
+
+        .sub-focus {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .sub-item {
+            background: white;
+            padding: 18px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            border-bottom: 2px solid #b0c4ce;
+        }
+
+        .sub-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--gov-red-dark);
+        }
+
+        /* ----- 政府信息公开专栏（四栏）----- */
+        .info-public {
+            padding: 40px 0;
+            background: white;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            border-bottom: 2px solid var(--gov-gold);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--gov-red-dark);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 12px;
+            color: var(--gov-red);
+        }
+
+        .more-link {
+            color: var(--gov-red);
+        }
+
+        .more-link:hover {
+            color: var(--gov-red-dark);
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .info-card {
+            background: #f5f9ff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid #d9e6f2;
+        }
+
+        .info-card h3 {
+            font-size: 1.2rem;
+            color: var(--gov-red-dark);
+            margin-bottom: 12px;
+            border-left: 4px solid var(--gov-gold);
+            padding-left: 12px;
+        }
+
+        .info-card ul {
+            list-style: none;
+        }
+
+        .info-card li {
+            margin-bottom: 10px;
+        }
+
+        .info-card a {
+            color: #2c3e50;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-card a:hover {
+            color: var(--gov-red);
+        }
+
+        .info-date {
+            color: #7e8c9d;
+            font-size: 0.8rem;
+        }
+
+        /* ----- 政务动态+通知公告（双列）----- */
+        .gov-news {
+            padding: 40px 0;
+            background: #f0f3f7;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        .news-list {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .list-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e5eef5;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .list-header h3 {
+            font-size: 1.4rem;
+            color: var(--gov-red-dark);
+        }
+
+        .news-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px dashed #edf2f7;
+        }
+
+        .news-title {
+            display: flex;
+            align-items: center;
+        }
+
+        .news-tag {
+            background: var(--gov-red);
+            color: white;
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 20px;
+            margin-right: 12px;
+        }
+
+        .news-tag-blue {
+            background: var(--gov-red-dark);
+        }
+
+        /* ----- 政务服务（八项）----- */
+        .gov-service {
+            padding: 40px 0;
+            background: white;
+        }
+
+        .service-icons {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .service-item {
+            text-align: center;
+        }
+
+        .service-item i {
+            font-size: 2.2rem;
+            color: var(--gov-red);
+            margin-bottom: 8px;
+            background: #fce9e9;
+            padding: 16px;
+            border-radius: 50%;
+            width: 70px;
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+        }
+
+        .service-item span {
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+
+        /* ----- 政策文件 ----- */
+        .policy-section {
+            padding: 40px 0;
+            background: #f5f9ff;
+        }
+
+        .policy-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .policy-item {
+            background: white;
+            padding: 20px;
+            border-radius: 6px;
+            border-left: 4px solid var(--gov-red);
+        }
+
+        .policy-num {
+            color: var(--gov-red);
+            font-size: 0.8rem;
+            margin-bottom: 8px;
+        }
+
+        /* ----- 友情链接 ----- */
+        .friend-links {
+            padding: 30px 0;
+            background: white;
+            border-top: 1px solid #dce4ec;
+        }
+
+        .links-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .links-list a {
+            color: #3e5a6b;
+        }
+
+        /* ----- 页脚 ----- */
+        .footer {
+            background: #2d1e1e;
+            color: #cbd5e0;
+            padding: 30px 0 20px;
+            font-size: 0.85rem;
+            border-top: 2px solid var(--gov-red);
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: #cbd5e0;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        .cert-badge {
+            display: inline-block;
+            background: #1e4a5e;
+            padding: 3px 12px;
+            border-radius: 20px;
+            margin: 0 5px;
+        }
+
+        .footer::after {
+            content: "⚜️ ⚜️ ⚜️";
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: rgba(200, 170, 150, 0.3);
+            letter-spacing: 8px;
+        }
+
+        @media (max-width: 1000px) {
+            .banner-grid, .info-grid, .news-grid, .policy-grid {
+                grid-template-columns: 1fr;
+            }
+            .service-icons {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .gov-title h1 {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .service-icons {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
 </head>
 <body>
-
-<!-- ========== 顶端工具条 无障碍/长者版/网站地图 ========= -->
 <div class="top-toolbar">
     <div class="container">
         <div class="toolbar-left">
-            <span><i class="fas fa-star"></i> 欢迎访问神启三界网</span>
+            <span><i class="fas fa-star"></i> 欢迎访问某某区人民政府网</span>
             <span><i class="fas fa-calendar"></i> 2026年2月12日 星期四</span>
         </div>
         <div class="toolbar-right">
@@ -154,16 +577,15 @@ body {
     </div>
 </div>
 
-<!-- ========== 头部：区徽 + 政府名称 ========= -->
 <div class="header">
     <div class="container">
         <div class="gov-brand">
-    <div class="gov-emblem">
-    <img src="/images/mjgh.png" alt="区徽" style="height: 60px; width: auto;">
-</div>
+            <div class="gov-emblem">
+                <i class="fas fa-gopuram"></i>
+            </div>
             <div class="gov-title">
-                <h1>神启三界</h1>
-                <p>https://itaoxini.github.io/·  政务公开  服务群友</p>
+                <h1>某某区人民政府</h1>
+                <p>www.xining.gov.cn  ·  政务公开  服务民生</p>
             </div>
         </div>
         <div class="search-box">
@@ -173,16 +595,15 @@ body {
     </div>
 </div>
 
-<!-- ========== 主导航 ========= -->
 <div class="nav-primary">
     <div class="container">
         <ul class="nav-list">
             <li><a href="#">首页</a></li>
-            <li><a href="#">三界信息</a></li>
-            <li><a href="#">三界政务</a></li>
+            <li><a href="#">政府信息公开</a></li>
+            <li><a href="#">政务服务</a></li>
             <li><a href="#">互动交流</a></li>
             <li><a href="#">数据发布</a></li>
-            <li><a href="#">走进三界</a></li>
+            <li><a href="#">走进某某</a></li>
         </ul>
         <div class="nav-tool">
             <i class="fas fa-user"></i> 个人登录 | 法人登录
@@ -190,7 +611,6 @@ body {
     </div>
 </div>
 
-<!-- ========== 要闻/焦点图区（政府风格） ========= -->
 <div class="hero-banner">
     <div class="container">
         <div class="banner-grid">
@@ -223,7 +643,6 @@ body {
     </div>
 </div>
 
-<!-- ========== 政府信息公开专栏 ========= -->
 <div class="info-public">
     <div class="container">
         <div class="section-header">
@@ -267,14 +686,12 @@ body {
     </div>
 </div>
 
-<!-- ========== 政务动态 + 通知公告 ========= -->
 <div class="gov-news">
     <div class="container">
         <div class="news-grid">
-            <!-- 左侧 政务要闻 -->
             <div class="news-list">
                 <div class="list-header">
-                    <h3><i class="fas fa-newspaper" style="margin-right: 8px;"></i> 政务要闻</h3>
+                    <h3><i class="fas fa-newspaper"></i> 政务要闻</h3>
                     <a href="#" class="more-link">更多</a>
                 </div>
                 <div class="news-item">
@@ -302,17 +719,10 @@ body {
                     </span>
                     <span class="info-date">02-09</span>
                 </div>
-                <div class="news-item">
-                    <span class="news-title">
-                        <a href="#">我区新增3家国家级专精特新企业</a>
-                    </span>
-                    <span class="info-date">02-08</span>
-                </div>
             </div>
-            <!-- 右侧 通知公告 -->
             <div class="news-list">
                 <div class="list-header">
-                    <h3><i class="fas fa-bullhorn" style="margin-right: 8px;"></i> 通知公告</h3>
+                    <h3><i class="fas fa-bullhorn"></i> 通知公告</h3>
                     <a href="#" class="more-link">更多</a>
                 </div>
                 <div class="news-item">
@@ -340,18 +750,11 @@ body {
                     </span>
                     <span class="info-date">02-09</span>
                 </div>
-                <div class="news-item">
-                    <span class="news-title">
-                        <a href="#">某某区河长名单公示</a>
-                    </span>
-                    <span class="info-date">02-08</span>
-                </div>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ========== 政务服务 ========= -->
 <div class="gov-service">
     <div class="container">
         <div class="section-header">
@@ -395,7 +798,6 @@ body {
     </div>
 </div>
 
-<!-- ========== 政策文件与解读 ========= -->
 <div class="policy-section">
     <div class="container">
         <div class="section-header">
@@ -405,48 +807,43 @@ body {
         <div class="policy-grid">
             <div class="policy-item">
                 <div class="policy-num">〔2026〕12号</div>
-                <h3 style="margin-bottom: 8px;"><a href="#">某某区推进制造业高质量发展若干措施</a></h3>
-                <p style="color: #4a5a6a;">对国家级专精特新企业给予100万元奖励……</p>
-                <div style="margin-top: 12px;">
-                    <span style="background: #eef2f6; padding: 3px 10px; border-radius: 16px; font-size: 0.75rem;"><i class="fas fa-file-alt"></i> 解读材料</span>
-                </div>
+                <h3><a href="#">某某区推进制造业高质量发展若干措施</a></h3>
+                <p>对国家级专精特新企业给予100万元奖励……</p>
             </div>
             <div class="policy-item">
                 <div class="policy-num">〔2026〕8号</div>
-                <h3 style="margin-bottom: 8px;"><a href="#">某某区老旧小区改造工作实施方案</a></h3>
-                <p style="color: #4a5a6a;">2026年计划改造26个小区，惠及居民1.2万户</p>
-                <div style="margin-top: 12px;">
-                    <span style="background: #eef2f6; padding: 3px 10px; border-radius: 16px; font-size: 0.75rem;"><i class="fas fa-video"></i> 视频解读</span>
-                </div>
+                <h3><a href="#">某某区老旧小区改造工作实施方案</a></h3>
+                <p>2026年计划改造26个小区，惠及居民1.2万户</p>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ========== 互动交流 / 友情链接 ========= -->
 <div class="friend-links">
     <div class="container">
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h3 style="color: #0a3e6d;"><i class="fas fa-comments"></i> 互动交流</h3>
+            <h3 style="color: var(--gov-red-dark);"><i class="fas fa-comments"></i> 互动交流</h3>
             <div>
-                <a href="#" style="margin-right: 20px;">群主信箱</a>
+                <a href="#" style="margin-right: 20px;">区长信箱</a>
                 <a href="#" style="margin-right: 20px;">网上咨询</a>
                 <a href="#" style="margin-right: 20px;">调查征集</a>
-                <a href="#">2701热线</a>
+                <a href="#">12345热线</a>
             </div>
         </div>
         <hr style="border: 0.5px solid #dce4ec; margin: 20px 0;">
         <div style="display: flex; justify-content: space-between; align-items: center;">
             <span style="color: #3e5a6b;">友情链接：</span>
             <div class="links-list">
-                <a href="#">三界天界网</a>
-                <a href="#">三界人界网</a>
+                <a href="#">中国政府网</a>
+                <a href="#">省政府</a>
+                <a href="#">市政府</a>
+                <a href="#">区人大</a>
+                <a href="#">区政协</a>
             </div>
         </div>
     </div>
 </div>
 
-<!-- ========== 页脚 ========= -->
 <footer class="footer">
     <div class="container">
         <div class="footer-links">
@@ -457,12 +854,11 @@ body {
             <a href="#">RSS订阅</a>
         </div>
         <div class="copyright">
-            <p>主办单位：神启三界冥界办事处 |  承办单位：神启三界办事处</p>
-            <p>版权所有：神启三界  <span class="cert-badge"></span>  <span class="cert-badge"></span></p>
-            <p>三界群号：624725365  |  联系电话13840772701</p>
+            <p>主办单位：某某区人民政府办公室  |  承办单位：某某区大数据中心</p>
+            <p>版权所有：某某区人民政府  <span class="cert-badge">京ICP备05012345号-1</span>  <span class="cert-badge">京公网安备 11010502034567号</span></p>
+            <p>网站标识码：1101050023  |  联系电话：010-12345678</p>
         </div>
     </div>
 </footer>
-
 </body>
 </html>
