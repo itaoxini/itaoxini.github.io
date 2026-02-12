@@ -7,101 +7,133 @@
     <!-- Font Awesome 6 免费图标库 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-       /* ===== 红色政府·彼岸花主题 ===== */
+      /* ===== 庄重红·政府门户 ===== */
 :root {
-  --gov-red: #b22222;      /* 庄重正红 */
-  --gov-red-light: #c0392b;
-  --gov-red-dark: #8b1a1a;
-  --lycoris: #e63946;      /* 彼岸花红 */
+  --gov-red: #8b1a1a;      /* 深枣红，不刺眼 */
+  --gov-red-dark: #5e1212;  /* 更深的红 */
+  --gov-gold: #c99c47;      /* 暗金点缀 */
+  --lycoris: #a53c3c;       /* 彼岸花暗红 */
 }
 
-/* 主色调替换 */
-.top-toolbar { background: var(--gov-red) !important; }
-.nav-primary { background: var(--gov-red) !important; border-bottom-color: #ffb347 !important; }
-.gov-emblem i, .section-title i { color: var(--gov-red) !important; }
-.btn, .hero-btn, .search-box button { background: var(--gov-red) !important; }
-.search-box { border-color: var(--gov-red) !important; }
-.footer { background: #4a1c1c !important; }
-.section-title { color: var(--gov-red) !important; }
-.info-card h3 { border-left-color: var(--lycoris) !important; }
-.policy-item { border-left-color: var(--gov-red) !important; }
-.news-tag { background: var(--gov-red) !important; }
-.more-link:hover, a:hover { color: var(--gov-red) !important; }
-
-/* ===== 彼岸花装饰 ===== */
-.hero-banner::before {
-content: "";
-background-image: url('/images/bianhua.jpg');
-background-size: contain;
-background-repeat: no-repeat;
-width: 120px;
-height: 80px;
-opacity: 0.2;
-position: absolute;
-top: 0;
-right: 0;";
-  position: absolute;
-  top: 10px;
-  right: 20px;
-  font-size: 2rem;
-  opacity: 0.2;
-  color: #ff6b6b;
-  pointer-events: none;
-  transform: rotate(10deg);
+/* ----- 全局底色更沉稳 ----- */
+body {
+  background-color: #f5f2ed;  /* 米白底，不像蓝色那么冷 */
+  color: #2c2e30;
 }
 
-.hero-banner::after {
-  content: "🌺🌺🌺";
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  font-size: 2.2rem;
-  opacity: 0.15;
-  color: #b22222;
-  pointer-events: none;
-  transform: rotate(-5deg);
+/* ----- 顶部工具条：深红 ----- */
+.top-toolbar {
+  background-color: var(--gov-red-dark) !important;
+  border-bottom: 2px solid var(--gov-gold) !important;
 }
 
-/* 左侧导航栏彼岸花飘落效果 */
-.nav-primary .container {
+/* ----- 主导航：庄重红 ----- */
+.nav-primary {
+  background: var(--gov-red) !important;
+  border-bottom: 3px solid var(--gov-gold) !important;
+}
+
+.nav-list a {
+  border-right: 1px solid #a23a3a !important;
+}
+
+.nav-list a:hover {
+  background: var(--gov-red-dark) !important;
+  color: #ffd98c !important;
+}
+
+/* ----- 区徽颜色 ----- */
+.gov-emblem i, 
+.section-title i {
+  color: var(--gov-red) !important;
+}
+
+.section-title {
+  color: var(--gov-red-dark) !important;
+  border-left-color: var(--gov-gold) !important;
+}
+
+/* ----- 按钮 ----- */
+.search-box {
+  border-color: var(--gov-red) !important;
+}
+
+.search-box button {
+  background: var(--gov-red) !important;
+}
+
+.search-box button:hover {
+  background: var(--gov-red-dark) !important;
+}
+
+.hero-btn, .btn {
+  background: var(--gov-red) !important;
+  border-radius: 4px !important;  /* 方形更庄重 */
+}
+
+.hero-btn:hover, .btn:hover {
+  background: var(--gov-red-dark) !important;
+}
+
+/* ----- 彼岸花：只留暗纹，不抢眼 ----- */
+.hero-banner {
   position: relative;
-  overflow: hidden;
 }
 
-.nav-primary .container::before {
-  content: "✿✿✿";
+.hero-banner::before {
+  content: "";
   position: absolute;
-  left: -20px;
-  top: 5px;
-  font-size: 2.5rem;
-  color: rgba(255, 107, 107, 0.2);
-  transform: rotate(-15deg);
-  white-space: nowrap;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.08"><path fill="%238b1a1a" d="M50 10c-8 0-15 5-18 12-3-7-10-12-18-12-11 0-20 9-20 20 0 18 38 48 38 48s38-30 38-48c0-11-9-20-20-20z"/></svg>');
+  background-repeat: repeat;
+  background-size: 60px;
+  pointer-events: none;
 }
 
-/* 页脚彼岸花 */
+/* 只在页脚留一小行极淡的花 */
 .footer::after {
-  content: "🌹  🌺  🌸  🥀  🌷";
+  content: "⚜️ ⚜️ ⚜️";
   display: block;
   text-align: center;
-  margin-top: 20px;
-  font-size: 1.5rem;
-  color: rgba(255, 200, 200, 0.5);
-  letter-spacing: 10px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: rgba(200, 170, 150, 0.3);
+  letter-spacing: 8px;
 }
 
-/* 卡片悬停变红 */
-.card-item:hover, .info-card:hover, .news-card:hover {
-  border-color: #b22222 !important;
-  box-shadow: 0 5px 15px rgba(178, 34, 34, 0.1) !important;
+/* ----- 卡片、边框：红金细节点缀 ----- */
+.info-card h3 {
+  border-left-color: var(--gov-gold) !important;
+  color: var(--gov-red-dark) !important;
 }
 
-/* 彼岸花背景纹饰（整页底纹） */
-body {
-  background-image: 
-    radial-gradient(circle at 10% 30%, rgba(255, 100, 100, 0.03) 0px, transparent 50px),
-    radial-gradient(circle at 95% 70%, rgba(200, 50, 50, 0.03) 0px, transparent 80px),
-    radial-gradient(circle at 40% 90%, rgba(220, 80, 80, 0.02) 0px, transparent 60px);
+.news-tag {
+  background: var(--gov-red) !important;
+}
+
+.policy-item {
+  border-left-color: var(--gov-red) !important;
+}
+
+.footer {
+  background: #2d1e1e !important;  /* 深褐红，不刺眼 */
+  border-top: 2px solid #8b1a1a;
+}
+
+/* ----- 政府网站特有的横线、分隔符 ----- */
+.section-header {
+  border-bottom-color: var(--gov-gold) !important;
+}
+
+.more-link {
+  color: var(--gov-red) !important;
+}
+
+.more-link:hover {
+  color: var(--gov-red-dark) !important;
 }</style>
 </head>
 <body>
